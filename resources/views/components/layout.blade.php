@@ -18,9 +18,9 @@
     </ul>
     <ul class="flex space-x-2">
         @auth()
-            <li>
-                {{auth()->user()->name ?? 'Anynomus'}}
-            </li>
+            <a href="{{ route('my-job-applications.index') }}">
+                {{auth()->user()->name ?? 'Anynomus'}}: Applications
+            </a>
             <form action="{{ route('auth.destroy') }}" method="POST">
                 @csrf
                 @method('DELETE')
