@@ -41,6 +41,8 @@
 </div>
 @endif
 
+{{--TO DO: make errors visible and fix not auth display "i have alreary to apply"--}}
+
 {{ $slot }}
 
 </body>
