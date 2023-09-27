@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Employer extends Model
 {
+    protected $fillable = ['company_name'];
+
     use HasFactory;
 
     public function jobs() : HasMany {
