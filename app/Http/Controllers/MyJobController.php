@@ -12,8 +12,11 @@ class MyJobController extends Controller
      */
     public function index()
     {
-//        dd(auth()->user()->employer->jobs);
-        return view('my_job.index', ['jobs' => auth()->user()->employer->jobs]);
+//        dd(auth()->user()->employer->jobs()->with(['employer', 'jobApplications', 'jobApplications.user'])->get());
+        return view('my_job.index',
+            ['jobs' => auth()->user()->employer->jobs()
+                ->with(['employer', 'jobApplications', 'jobApplications.user'])
+                ->latest()->get()]);
     }
 
     /**
