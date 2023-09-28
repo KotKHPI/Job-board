@@ -17,9 +17,9 @@
                         <div>
                             Applied {{$application->created_at->diffForHumans()}}
                         </div>
-                        <x-button class="flex mt-4">
+                        <div>
                             Download CV
-                        </x-button>
+                        </div>
                     </div>
 
                     <div>
@@ -36,6 +36,10 @@
                     </div>
                 </div>
             @endforelse
+
+            <div class="flex space-x-2">
+                <x-link-button href="{{ route('my-jobs.edit', $job) }}">Edit</x-link-button>
+            </div>
 
         </div>
     </x-job-card>
