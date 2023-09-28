@@ -12,6 +12,10 @@ use Illuminate\Database\Query\Builder as QueryBuilder;
 
 class Job extends Model
 {
+    protected $fillable = [
+        'title', 'location', 'salary', 'description', 'experience', 'category'
+    ];
+
     use HasFactory;
 
     public static array $experience = ['entry', 'intermediate', 'senior'];
