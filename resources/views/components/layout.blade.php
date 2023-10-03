@@ -37,8 +37,13 @@
         </li>
         @else
             <li>
-                <a href="{{ route('login') }}">Sign in</a>
+                <a href="{{ route('login') }}">Sign in |</a>
             </li>
+
+            <li>
+                <a href="{{ route('register.create') }}">Registration</a>
+            </li>
+
         @endauth
     </ul>
 </nav>
