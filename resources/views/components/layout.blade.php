@@ -18,14 +18,23 @@
     </ul>
     <ul class="flex space-x-2">
         @auth()
+        <li>
             <a href="{{ route('my-job-applications.index') }}">
                 {{auth()->user()->name ?? 'Anynomus'}}: Applications
             </a>
+        </li>
+
+        <li>
+            <a href="{{ route('my-jobs.index') }}">My jobs</a>
+        </li>
+
+        <li>
             <form action="{{ route('auth.destroy') }}" method="POST">
                 @csrf
                 @method('DELETE')
                 <button>Logout</button>
             </form>
+        </li>
         @else
             <li>
                 <a href="{{ route('login') }}">Sign in</a>

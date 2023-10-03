@@ -2,7 +2,7 @@
     <x-breadcrumbs class="mb-4"
     :links="['My Job Applications' => '#']"/>
 
-    @foreach($applications as $application)
+    @forelse($applications as $application)
         <x-job-card :job="$application->job">
             <div class="flex items-center justify-between text-sm text-slate-500">
                 <div>
@@ -38,6 +38,5 @@
                 Go find some jobs <a class="text-indigo-500 hover:underline" href="{{ route('jobs.index') }}">here!</a>
             </div>
         </div>
-
-    @endforeach
+    @endforelse
 </x-layout>

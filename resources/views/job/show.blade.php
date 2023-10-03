@@ -22,7 +22,7 @@
         </h2>
 
 
-        <div class="texx-sm text-slate-500">
+        <div class="text-sm text-slate-500">
             @foreach($job->employer->jobs as $otherJob)
                 <div class="mb-4 flex justify-between">
                     <div>
