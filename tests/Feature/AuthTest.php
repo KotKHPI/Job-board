@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use App\Models\Job;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Str;
 use Tests\TestCase;
 
 class AuthTest extends TestCase
@@ -37,8 +38,27 @@ class AuthTest extends TestCase
         $user = $this->user();
 
         $response = $this->actingAs($user)
-            ->get('/jobs/logout')->dd();
+            ->delete("/auth/$user->id");
 
         $this->test_visit_not_auth_user_on_job_page();
+    }
+
+    public function test_registration() : void {
+        $user = [
+            'name' => 'catTest',
+            'email' => fake()->unique()->safeEmail(),
+            'password' => 'password', // password
+            'password_confirmation' => 'password',
+        ];
+
+        $response = $this->post('/register', $user)->assertStatus(302)
+        ->assertSessionHas('success');
+
+        $this->assertEquals(session('success'), 'User was created!');
+
+        $this->assertDatabaseHas('users', [
+            'name' => $user['name']
+        ]);
+
     }
 }
