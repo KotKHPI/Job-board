@@ -28,6 +28,7 @@ And you can also be an employer.
 - Upload and storage files (CV) 
 - CRUD
 - Middleware
+- Tests
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
