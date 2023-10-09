@@ -31,9 +31,6 @@
                     <div class="text-center font-medium">
                         No applications yet :(
                     </div>
-                    <div class="text-center">
-                        Post your first job <a class="text-indigo-500 hover:underline" href="{{ route('my-jobs.create') }}">Here!</a>
-                    </div>
                 </div>
             @endforelse
 
@@ -50,7 +47,11 @@
         </div>
     </x-job-card>
 @empty
-    No jobs
+        <div class="rounded-md border border-dashed border-slate-300 p-8">
+            <div class="text-center">
+                Post your first job <a class="text-indigo-500 hover:underline" href="{{ route('my-jobs.create') }}">Here!</a>
+            </div>
+        </div>
 @endforelse
 
 </x-layout>
