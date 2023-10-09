@@ -15,15 +15,15 @@ abstract class TestCase extends BaseTestCase
         return User::factory()->create();
     }
 
-    public function userIsEmployer() : Employer {
+    public function employer($user = null) : Employer {
         return Employer::factory()->create([
-            'user_id' => $this->user()->id
+            'user_id' => $user ?? $this->user()->id
         ]);
     }
 
     public function job() : Job {
         return Job::factory()->create([
-            'employer_id' => $this->userIsEmployer()->id
+            'employer_id' => $this->employer()->id
         ]);
     }
 }
